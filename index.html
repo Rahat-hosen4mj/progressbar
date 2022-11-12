@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide-progress-bar {
+  width: 1118px;
+  background-color: rgba(155, 155, 255, 0.36);
+  transition: width 10s linear;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.progress-bar {
+  height: 5px;
+  background-color: #aff;
+  width: 1%;
+  position: relative;
+}
+    </style>
+</head>
+<body>
+    <div class="slide-progress-bar">
+        <div class="progress-bar" id="progress-bar"></div>
+        <!--progress-bar-->
+      </div>
+      <button onclick="progressBar()">Start</button>
+      </div>
+      <script>
+        var elem = document.getElementById("progress-bar");
+var width = 1;
+var interval;
+
+function progressBar() {
+  resetProgressBar();
+
+  interval = setInterval(frame, 100);
+
+  function frame() {
+    if (width >= 100) {
+      clearInterval(interval);
+    } else {
+      width++;
+      elem.style.width = width + '%';
+    }
+  }
+}
+
+function resetProgressBar() {
+  width = 1;
+  clearInterval(interval)
+  elem.style.width = width + '%';
+}
+      </script>
+</body>
+</html>
